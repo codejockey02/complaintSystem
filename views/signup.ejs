@@ -1,0 +1,263 @@
+    <!DOCTYPE html>
+    <html>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+    body {font-family: Arial, Helvetica, sans-serif; height: 758px;
+            background-image: linear-gradient(white,skyblue);
+            background-repeat:no-repeat; }
+    * {box-sizing: border-box
+        padding:0px;
+        margin: 0px;
+    }
+
+        .tnav {
+          overflow: hidden;
+          background-color: black;
+            width:1590;
+       }
+        
+        .tnav a {
+            float: left;
+            color: white;
+            text-align: center;
+            padding: 20px 20px;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+       .tnav a:hover {
+            color: white;
+            background-color:grey;
+         }
+        
+    input[type=text], input[type=password] {
+        width: 90%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        display: inline-block;
+        border: none;
+        background: #f1f1f1;
+    }
+
+        input:valid{
+            background-color: lightyellow;
+            border: 2px solid green;
+        }
+        input:invalid{
+            border:2px solid red;
+        }
+
+    input[type=text]:focus, input[type=password]:focus, input[type=email]:focus{
+        background-color: gainsboro;
+        outline: black;
+        border: 2px solid blue;
+    }
+
+        .icon {
+        padding: 10px;
+        background-color:gainsboro;
+        color: black;
+        min-width: 40px;
+        text-align: center;
+    }
+
+        .dropbtn {
+        background-color: black;
+        color: white;
+        padding: 10px;
+        font-size: 15px;
+        border: none;
+        cursor: pointer;
+    }
+
+
+    hr {
+        border: 1px solid #f1f1f1;
+        margin-bottom: 25px;
+    }
+
+
+    button {
+        background-color: limegreen;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100px;
+        opacity: 0.9;
+    }
+
+    button:hover {
+        opacity:1;
+    }
+
+        .row {
+        display: flex;
+    }
+
+    .column {
+        flex: 50%;
+        padding: 10px;
+        height: 300px; 
+    }
+
+    .cancelbtn {
+        padding: 14px 20px;
+        background-color: #f44336;
+    }
+
+    .cancelbtn, .signupbtn {
+      float: left;
+      width: 50%;
+      font-size: 20px;    
+    }
+
+        .container{
+       border:1px solid black;
+        background-color: white;
+        margin-left: 400px;
+        margin-top: 50px;
+        width: 800px;
+        padding: 16px;
+        float: left;
+        height: 860px;
+    }
+
+
+    </style>
+        <script>
+            var genderByBlock = {
+        Female: ["A Block", "B Block", "C Block", "D Block", "E Block", "E-Annex", "F Block"],
+        Male: ["A Block", "B Block", "B-Annex", "C Block", "D Block", "D-Annex", "E Block", "F Block", "G-Block", "H-Block", "J-Block", "K-Block", "L-Block", "M-Block", "N-Block", "P-Block", "Q-Block"]
+    }
+
+        function changeBlock(value) {
+            if (value.length == 0) document.getElementById("Block").innerHTML = "<option></option>";
+            else {
+                var catOptions = "";
+                for (categoryId in genderByBlock[value]) {
+                    catOptions += "<option>" + genderByBlock[value][categoryId] + "</option>";
+                }
+                document.getElementById("Block").innerHTML = catOptions;
+            }
+        }
+
+            function validatePassword(){
+                            var x = document.getElementById("pwd").value;
+                            var y = document.getElementById("cpwd").value;
+                            if(x!=y){
+                                    text1 = "Passwords don't match, enter a valid password";
+                                    } 
+                            else{
+                                  text1="";
+                            }
+    document.getElementById("msg").innerHTML=text1;
+    }
+        function scorePassword(pass) {
+        var score = 0;
+        var p = new Array();
+
+        p[0]="";
+        p[1]="";
+        p[2]="very weak";
+        p[3]="weak";
+        p[4]="good";
+        p[5]="Strong";
+
+    if(pass.length > 5) score++;
+    if(pass.match(/[a-z]/)) score++;
+    if(pass.match(/[A-Z]/)) score++;
+    if(pass.match(/\d+/)) score++;
+    if(pass.length > 8) score++;
+            
+    document.getElementById("msg1").innerHTML = p[score];
+    }
+        </script>
+    <body>
+
+        <div class="tnav">
+            <a href="http://www.vit.ac.in">VIT</a>
+            <a href="login.html" style="float:right;">Login</a>
+            <a href="about.html" style="float:right">About Us</a>
+        </div>
+
+       
+    <form action="/login" style="border:1px solid #ccc;" method="POST">
+         
+          <div class="container">
+
+        <h1>Sign Up</h1>
+        <p>Please fill in this form to create an account.</p>
+        <hr>
+        <div class="row">
+            <div class="column">
+
+         <i class="fa fa-id-card icon"></i>
+        <label for="regno"><b>Registration Number:</b></label>
+              <input class="input-field" type="text" placeholder="Enter Your Registration Number" name="regno" minlength="9" maxlength="9" required><br>
+
+          <i class="fa fa-user icon" style="font-size:20px;"></i>
+        <label for="name"><b>Name:</b></label><br>
+        <input type="text" placeholder="example: Jane Doe" name="name" required><br>
+
+           <i class="fa fa-key icon" style="font-size:20px"></i>
+          <label for="pwd"><b>Password:</b></label><br>
+              <input type="password" placeholder="An uppercase, a lowercase, a digit, length > 8" name="pwd" id="pwd" onkeyup="scorePassword(this.value)" required><span id="msg1"></span><br><br>
+
+          <i class="fa fa-key icon" style="font-size:20px"></i>
+        <label for="cpwd"><b>Confirm Password:</b></label><br>
+        <input type="password" placeholder="Confirm Password" name="cpwd" id="cpwd" onkeyup="validatePassword()" required><br><span id="msg"></span><br>
+
+        <i class="material-icons icon" style="font-size:20px;">group</i>     
+        <label for="gender"><b>Gender:</b></label><br><br>
+          <select class="dropbtn" id="gender" name="gender" onChange="changeBlock(this.value);">
+               <option value="" disabled selected>Select</option>
+              <option value="Female">Female</option>
+              <option value="Male">Male</option>
+                </select><br><br></div>
+
+                <div class="column">
+
+          <i class="fa fa-building icon" style="font-size:20px"></i>
+          <label for="Block"><b>Hostel Block:</b></label><br><br>
+          <select name="Block" id="Block" class="dropbtn">
+        <option value="" disabled selected>Select</option>
+                     </select><br><br> 
+
+
+        <i class="material-icons icon" style="font-size:20px">room</i>  
+        <label for="roomno"><b>Room Number:</b></label><br>
+        <input type="text" placeholder="example: C-212" name="roomno" required><br>
+
+        <i class="fa fa-phone icon" style="font-size: 20px"></i>     
+        <label for="pno"><b>Phone Number:</b></label><br>
+        <input type="text" placeholder="Enter your Phone Number" name="pno" maxlength="10" required><br>
+
+          <i class="fa fa-envelope icon" style="font-size:20px"></i>
+         <label for="email"><b>Email:</b></label><br>
+        <input type="text" placeholder="example:abc@xyz.com" name="email" required><br>
+
+        <label>
+          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+        </label>
+
+        <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+        <div class="clearfix">
+          <a href="homepage.html"><button type="button" class="cancelbtn">Cancel</button></a>
+          <a href="login.ejs"><button type="submit" class="signupbtn">Sign Up</button></a>
+                    </div></div></div>
+
+       </div>
+        </form>
+         
+    </body>
+    </html>

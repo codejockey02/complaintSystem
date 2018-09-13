@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    
+* {box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+    
+.topnav{
+  overflow: hidden;
+  background-color: black;
+}
+
+.topnav a{
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 20px 20px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.topnav a:hover{
+  background-color: #333;
+  color: whitesmoke;
+}
+
+input[type=email],[type=password]{
+    width: 100%;
+    border: 2px solid #aaa;
+    border-radius: 4px;
+    margin-bottom: 8px 0;
+    outline: none;
+    padding: 8px;
+    box-sizing: border-box;
+    transition: .3s;
+  }
+    
+div.container{
+    background-color: white;
+    padding: 10px;
+    margin-top: 50px;
+    margin-left: 470px;
+    border-top: 1px solid lightgray;
+    width: 400px;
+}
+  
+  input[type=email]:focus,[type=password]:focus{
+    border-color: skyblue;
+    box-shadow: 0 0 8px 0 skyBlue;
+  }
+  
+  .inputWithIcon input[type=email],[type=password]{
+    padding-left: 40px;
+  }
+  
+  .inputWithIcon{
+    position: relative;
+  }
+  
+  .label{
+      font-size: 20px;
+      color: black;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      font-weight: bold;  
+  }
+    
+  .inputWithIcon i{
+    position: absolute;
+    left: 0;
+    top: 8px;
+    padding: 1px 8px;
+    color: #aaa;
+  }
+  
+  .inputWithIcon input[type=email]:focus + i,[type=password]:focus + i{
+    color: skyblue;
+  }
+    
+.btn{
+    margin-top: 12px;
+    background-color: skyblue;
+    color: white;
+    padding: 8px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 20%;
+    opacity: 0.9;
+    font-size: 17px;
+}
+
+.btn:hover{
+    opacity: 1;
+}
+    
+  
+</style>
+</head>
+<body>
+    
+<div class="topnav">
+  <a href="#home">VIT</a>
+  <a href="#about" style="float:right">About</a>
+</div>
+    
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1 style="text-align:center;">Login</h1>    
+    
+<div class="container">
+    <form action="/action_page.php">
+        <div class="label">Email</div>
+        <div class="inputWithIcon">
+            <input type="email" name="email" placeholder="abc@xyz.com">
+            <i class="fa fa-envelope fa-lg fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="label">Password</div>
+        <div class="inputWithIcon">
+            <input type="password" name="pw">
+            <i class="fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
+        </div>
+    </form>
+    <button type="submit" class="btn">Log In</button>
+</div>
+
+</body>
+</html>
