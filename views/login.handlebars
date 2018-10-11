@@ -105,8 +105,8 @@ div.container{
 <body>
     
 <div class="topnav">
-  <a href="#home">VIT</a>
-  <a href="#about" style="float:right">About</a>
+  <a href="homepage">Home</a>
+  <a href="about" style="float:right">About</a>
 </div>
     
 <br>
@@ -117,10 +117,10 @@ div.container{
 <h1 style="text-align:center;">Login</h1>    
     
 <div class="container">
-    <form action="/info" method="POST">
+    <form action="/login" method="POST">
         <div class="label">Email</div>
         <div class="inputWithIcon">
-            <input type="email" name="email" placeholder="abc@xyz.com">
+            <input type="email" id = "email" name="email" placeholder="abc@xyz.com">
             <i class="fa fa-envelope fa-lg fa-fw" aria-hidden="true"></i>
         </div>
         <div class="label">Password</div>
@@ -128,9 +128,17 @@ div.container{
             <input type="password" name="pw">
             <i class="fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
         </div>
-    <button type="submit" class="btn">Log In</button>
+    <button type="submit" class="btn" onclick="store()">Log In</button>
     </form>
 </div>
+
+<script>
+function store(){
+    var x = document.getElementById("email").value;
+    localStorage.setItem("Email", x);
+}
+
+</script>
 
 </body>
 </html>

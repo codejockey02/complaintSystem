@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif; 
+            margin:0;
+            height: 758px;
+            background-image: linear-gradient(white,skyblue);
+            background-repeat:no-repeat;
+        }
+        .tnav {
+          overflow: hidden;
+          background-color: black;
+       }
+        
+        .tnav a {
+            float: left;
+            color: white;
+            text-align: center;
+            padding: 20px 20px;
+            text-decoration: none;
+            font-size: 20px;
+        }
+        
+        .tnav p{
+            color: black;
+            font-size: 30px;
+            padding:  6px 6px 6px 32px;
+        }
+
+       .tnav a:hover {
+            color: white;
+            background-color:grey;
+         }
+
+    .bg-img{
+        background-image: linear-gradient(white,lightsteelblue);
+        height:583px;
+        background-attachment: fixed;
+        background-size:100% 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+    }
+
+    table{
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    td{
+        text-align: center;
+        padding: 5px;
+    }
+
+    tr:nth-child(even){
+        background-color: white;
+    }
+
+    th{
+        background-color: darkslategray;
+        color: white;
+        text-align: center;
+        padding: 8px;
+    }
+    
+    tr:hover{
+        background-color:#f5f5f5;
+    }
+
+    .button {
+    background-color:#008CBA;
+    border-radius: 12px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    margin: auto;
+    cursor: pointer;
+    float: center;
+    }
+
+    .button:hover {background-color: #e7e7e7; color: black}
+    
+    </style>
+    <body>
+        <div class="tnav">
+            <a href="adminhome">Home</a>
+            <a href="staffs">Staff</a>
+            <a href="assign">Assign Tasks</a>
+            <a href="info">Info</a>
+            <a href="adminlogin" style="float:right" >Logout</a>
+        </div>
+
+       <div class="bg-img">
+    <h1 style="text-align: center">Assign Task </h1>
+    <br>
+    <table>
+        <tr>
+            <th rowspan="2">Serial No.</th>
+            <th rowspan="2">Name</th>
+            <th rowspan="2">Registration No.</th>
+            <th rowspan="2">Date</th>
+            <th rowspan="2">Complaint Type</th>
+            <th colspan="2">Free Hours</th>
+            <th rowspan="2">Block</th>
+            <th rowspan="2">Room No.</th>
+            <th rowspan="2">Status</th>
+            <th rowspan="2">Assign Task</th>
+        </tr>
+        <tr>
+            <th>From</th>
+            <th>To</th>
+        </tr>
+        
+        <tr>
+            {{#each requests}}
+            <td>{{_id}}</td>
+            <td>{{name}}</td>
+            <td>{{reg}}</td>
+            <td>{{date}}</td>
+            <td>{{issue}}t</td>
+            <td>{{time}}</td>
+            <td>{{ttime}}</td>
+            <td>{{Block}}</td>
+            <td>{{room}}</td>
+            <td>{{status}}</td>
+            <form action="admin" method="POST">
+                <input type="text" name="name" value={{_id}} style="display: none">
+                {{!-- <button type="submit">Send Notification</button> --}}
+            <td><a href="assign"><button id="b1" type="submit">Assign</button></a></td>
+        </tr>
+        </form>
+        {{/each}}
+    </table><br><br><br>
+    <form action="assigntask" method="POST">
+            <button type="submit" class="button">Click to view Requests</button>
+        </form>
+
+
+
+    </div>
+
+
+    {{!-- <script type="text/javascript">
+        
+        
+
+        function assign1(){
+            if (typeof(Storage) !== "undefined") {
+             // Store
+                localStorage.setItem("Name", "Priyesh Saraswat");
+                localStorage.setItem("Block", "C");
+                localStorage.setItem("Room", "420");
+                localStorage.setItem("Service", "Wifi Complaint");
+                localStorage.setItem("from", "10 am");
+                localStorage.setItem("to","4 pm");
+
+            } else {
+                document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+            }
+        }
+
+        function assign2(){
+            if (typeof(Storage) !== "undefined") {
+             // Store
+                localStorage.setItem("Name", "Harsh Sharma");
+                localStorage.setItem("Block", "C");
+                localStorage.setItem("Room", "320");
+                localStorage.setItem("Service", "Room Service");
+                localStorage.setItem("from", "10 am");
+                localStorage.setItem("to","2 pm");
+
+            } else {
+                document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+            }
+        }
+    </script> --}}
+    </body>
+</html>

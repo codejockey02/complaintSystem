@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+<style>
+    
+    * {
+        box-sizing: border-box;
+        padding: 0px;
+        margin:0px;
+    }
+    
+    table{
+        width: 80%;
+        margin-left: 100px;
+    }
+
+    td{
+        text-align: center;
+        padding: 5px;
+    }
+
+    tr:nth-child(even){
+        background-color: white;
+    }
+
+    th{
+        background-color: darkslategray;
+        color: white;
+        text-align: center;
+        padding: 8px;
+    }
+    
+    tr:hover{
+        background-color:#f5f5f5;
+    }
+    
+    .bg-img{
+        background-image: linear-gradient(white,lightsteelblue);
+        height:583px;
+        background-attachment: fixed;
+        background-size:100% 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+    }
+    
+    .topnav{
+        overflow: hidden;
+        background-color: black;
+    }
+    
+    .topnav a{
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 20px 20px;
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .topnav a:hover{
+        background-color: #333;
+        color: whitesmoke;
+    }
+
+</style>
+</head>
+<body>
+    
+    <div class="topnav">
+        <a href="pickacomplaint">Home</a>
+            <a href="complainthistory">Complaint history</a>
+            <a href="status">Status</a>
+            <a href="login" style="float:right">Logout</a>
+    </div>
+    
+    <div class="bg-img">
+    <br>
+    <h1 style="text-align: center">Complaint History</h1>
+    <br>
+    <table>
+        <tr>
+            <th rowspan="2">Serial No.</th>
+            <th rowspan="2">Date</th>
+            <th rowspan="2">Complaint Type</th>
+            <th colspan="2">Free Hours</th>
+            <th rowspan="2">Status</th>
+        </tr>
+        <tr>
+            <th>From</th>
+            <th>To</th>
+        </tr>
+        <tr>
+            <td>1.</td>
+            <td>03/09/18</td>
+            <td>Electrical Complaint</td>
+            <td>10am</td>
+            <td>6pm</td>
+            <td>Request Pending</td>
+        </tr>
+        <tr>
+            <td>2.</td>
+            <td>04/09/18</td>
+            <td>Wifi Complaint</td>
+            <td>11am</td>
+            <td>4pm</td>
+            <td>Service Provided</td>
+        </tr>
+        <tr>
+            <td>3.</td>
+            <td>04/09/18</td>
+            <td>La Complaint</td>
+            <td>11am</td>
+            <td>4pm</td>
+            <td>Service Provided</td>
+        </tr>
+    </table>
+    </div>
+    
+</body>
+</html>

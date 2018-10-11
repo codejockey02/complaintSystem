@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif; 
+            margin:0;
+            height: 758px;
+            background-image: linear-gradient(white,skyblue);
+            background-repeat:no-repeat;
+        }
+        .tnav {
+          overflow: hidden;
+          background-color: black;
+       }
+        
+        .tnav a {
+            float: left;
+            color: white;
+            text-align: center;
+            padding: 20px 20px;
+            text-decoration: none;
+            font-size: 20px;
+        }
+        
+        .tnav p{
+            color: black;
+            font-size: 30px;
+            padding:  6px 6px 6px 32px;
+        }
+
+       .tnav a:hover {
+            color: white;
+            background-color:grey;
+         }
+
+        .ta{
+            margin-left: 45%;
+            margin-top: 70px;
+        }
+
+
+        .ta select{
+            width: 200px;
+            height: 35px;
+        }
+
+
+         /*styling for the table */
+         .bg-img{
+        background-image: linear-gradient(white,lightsteelblue);
+        height:583px;
+        background-attachment: fixed;
+        background-size:100% 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+    }
+    table{
+        width: 80%;
+        margin-left: 100px;
+    }
+
+    td{
+        text-align: center;
+        padding: 5px;
+    }
+
+    tr:nth-child(even){
+        background-color: white;
+    }
+
+    th{
+        background-color: darkslategray;
+        color: white;
+        text-align: center;
+        padding: 8px;
+    }
+    
+    tr:hover{
+        background-color:#f5f5f5;
+    }
+
+    input[type=submit]{
+            background-color: green;
+            font-size:20px;
+            padding: 10px 34px;
+            border-radius: 12px; 
+            margin-top: 50px; 
+            margin-left: 47.5%;
+            border: 1px solid green;
+        }
+     .button {
+    background-color:#008CBA;
+    border-radius: 12px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    margin: auto;
+    cursor: pointer;
+    float: center;
+    }
+
+    .button:hover {background-color: #e7e7e7; color: black}
+    
+    </style>
+    <body>
+        <div class="tnav">
+            <a href="adminhome">Home</a>
+            <a href="staffs">Staff</a>
+            <a href="assigntask">Assign Tasks</a>
+            <a href="info">Info</a>
+            <a href="adminlogin" style="float:right" >Logout</a>
+        </div>
+
+
+        <div class="bg-img">
+        <h1 style="text-align: center">Assign Task </h1>
+         <table>
+        <tr>
+            <th rowspan="2">Complaint ID</th>
+            <th rowspan="2">Name</th>
+            <th rowspan="2">Registration No.</th>
+            <th rowspan="2">Date</th>
+            <th rowspan="2">Complaint Type</th>
+            <th colspan="2">Free Hours</th>
+            <th rowspan="2">Block</th>
+            <th rowspan="2">Room No.</th>
+            <th rowspan="2">Status</th>
+        </tr>
+        <tr>
+            <th>From</th>
+            <th>To</th>
+        </tr>
+        
+        <tr>
+            {{#each requests}}
+            <td>{{_id}}</td>
+            <td>{{name}}</td>
+            <td>{{reg}}</td>
+            <td>{{date}}</td>
+            <td>{{issue}}t</td>
+            <td>{{time}}</td>
+            <td>{{ttime}}</td>
+            <td>{{Block}}</td>
+            <td>{{room}}</td>
+            <td>{{status}}</td>
+        </tr>
+        {{/each}}
+    </table><br><br><br>
+    <form action="assign" method="POST">
+            <button type="submit" class="button">Click to Assign the Task</button>
+        </form>
+
+<!-- division for staff assignment to a complaint -->
+
+        <div class="ta">
+            <select>
+                <option value="ramesh">Ramesh</option>
+                <option value="suresh">Suresh</option>
+                <option value="Rahul">Rahul</option>
+                <option value="Raman">Raman</option>
+            </select>
+
+        </div>
+        <form action="statuschange" method="POST">
+            <input type="submit" value="Assign" onclick="submit()">
+        </form>
+        
+
+
+    <script type="text/javascript">
+
+
+    function submit(){
+        alert("Successfully assigned the task for Room no. "+ room);
+    }
+
+</script>
+    </body>
+</html>

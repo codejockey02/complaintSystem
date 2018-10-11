@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif; 
+            margin:0;
+            height: 758px;
+            background-image: linear-gradient(white,skyblue);
+            background-repeat:no-repeat;
+        }
+        .tnav {
+          overflow: hidden;
+          background-color: black;
+       }
+        
+        .tnav a {
+            float: left;
+            color: white;
+            text-align: center;
+            padding: 20px 20px;
+            text-decoration: none;
+            font-size: 20px;
+        }
+        
+        .tnav p{
+            color: black;
+            font-size: 30px;
+            padding:  6px 6px 6px 32px;
+        }
+
+       .tnav a:hover {
+            color: white;
+            background-color:grey;
+         }
+        
+        .view{
+            margin-left:250px;
+            margin-top: 50px;
+        }
+        
+        .view p{
+            font-size: 30px;
+            padding-left:200px;
+            color: black;
+        }
+        
+        .view h2{
+            font-size: 30px;
+            color:black;
+            padding-left: 100px;
+        }
+        
+        .view textarea{
+            margin-left: 250px;
+        }
+        
+        input[type=submit]{
+            background-color: green;
+            font-size:20px;
+            padding: 10px 34px;
+            border-radius: 12px;  
+            margin-left: 760px;
+            border: 1px solid green;
+        }
+        
+        .time{
+            margin-left: 250px;
+            font-size:25px;
+            color:black;
+        }
+        
+    </style>
+    <body>
+        <div class="tnav">
+            <a href="pickacomplaint">Home</a>
+            <a href="complainthistory">Complaint history</a>
+            <a href="status">Status</a>
+            <a href="login" style="float:right">Logout</a>
+        </div>
+        <div class="view">
+            <h2>Register a new complaint here</h2>
+           <p style=" padding-top:50px;" id="Description">Description:</p>
+           <form action="/regcomplaint" method="POST">
+            <textarea rows="10" cols="90" id="desc" name="desc"></textarea><br>
+            <p>Free hours:</p>
+          <div class="time"> 
+        <input type="time" name="time"><span>To</span>
+              <input type="time" name="ttime"><br></div>
+            <input type="text"  id ="issue" name="issue" value="3" style="display: none" >
+            <input type="text"  id ="em" name="email" value="3" style="display:none" >
+            
+            <input type="submit" value="Submit" onclick="submit_comp()">
+        </div>
+    </form>
+
+
+        <script type="text/javascript">
+
+        document.getElementById("Description").innerHTML = "Description of " +localStorage.getItem("Issue");
+        document.getElementById("issue").value = localStorage.getItem("Issue");
+        document.getElementById("em").value = localStorage.getItem("Email");
+        
+            function submit_comp()
+            {
+                alert("Complaint Registered Successfully");
+            }
+
+        </script>
+    </body>
+</html>

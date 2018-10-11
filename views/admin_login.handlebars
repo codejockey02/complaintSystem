@@ -7,8 +7,7 @@
     
 * {box-sizing: border-box;
   padding: 0px;
-  margin: 0px;
-}
+  margin: 0px;}
     
 .topnav{
   overflow: hidden;
@@ -105,32 +104,46 @@ div.container{
 <body>
     
 <div class="topnav">
-  <a href="#home">VIT</a>
-  <a href="#about" style="float:right">About</a>
+  <a href="adminlogin">Home</a>
+  <a href="about" style="float:right">About</a>
 </div>
-    
+
 <br>
 <br>
 <br>
 <br>
 <br>
-<h1 style="text-align:center;">Login</h1>    
+<h1 style="text-align:center;">Admin Login</h1>    
     
 <div class="container">
-    <form action="/action_page.php">
+    <form action="/adminlogin" method="POST">
         <div class="label">Email</div>
         <div class="inputWithIcon">
-            <input type="email" name="email" placeholder="abc@xyz.com">
+            <input type="email" placeholder="abc@xyz.com" name="email">
             <i class="fa fa-envelope fa-lg fa-fw" aria-hidden="true"></i>
         </div>
         <div class="label">Password</div>
         <div class="inputWithIcon">
-            <input type="password" name="pw">
+            <input type="password" placeholder="*********" name="pw">
             <i class="fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
         </div>
+        <a href="/adminhome"></a><button type="submit" class="btn">Log In</button></a>
     </form>
-    <button type="submit" class="btn">Log In</button>
+    
 </div>
+
+<script>
+
+
+// Check browser support
+if (typeof(Storage) !== "undefined") {
+    // Store
+    localStorage.setItem("lastname", "Anant");
+    // Retrieve
+} else {
+    document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+}
+</script>
 
 </body>
 </html>
