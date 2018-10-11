@@ -21,7 +21,8 @@
     "cloudinary": "*",
     "util": "*",
     "formidable": "*",
-    "mongodb-autoincrement": "*"
+    "mongodb-autoincrement": "*",
+    "express-handlebars": "*"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
