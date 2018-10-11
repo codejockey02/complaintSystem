@@ -1,0 +1,39 @@
+{
+  "name": "project_iwp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "basic-auth": "^1.0.4",
+    "bcryptjs": "^2.3.0",
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.0",
+    "fs": "*",
+    "jsonminify": "^0.4.1",
+    "jsonwebtoken": "^7.1.9",
+    "mongoose": "^4.6.0",
+    "morgan": "^1.7.0",
+    "nodemailer": "^2.6.0",
+    "randomstring": "*",
+    "multer": "*",
+    "file-type": "*",
+    "cloudinary": "*",
+    "util": "*",
+    "formidable": "*"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codejockey02/complaintSystem.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codejockey02/complaintSystem/issues"
+  },
+  "homepage": "https://github.com/codejockey02/complaintSystem#readme"
+}
