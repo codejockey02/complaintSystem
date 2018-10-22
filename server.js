@@ -13,7 +13,12 @@ app.use(express.static('public'));  // fetch all the static files/images fromm p
 app.use( bodyParser.json() );  // we;ll use body parser to have json files
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.engine('handlebars', exphbs({     // setting the extensi0on to be handlebars 
+app.engine('handlebars', exphbs({
+    helpers: {
+        ifEquals: function(arg1, arg2, options){
+            return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+        }
+    }     // setting the extensi0on to be handlebars 
 }));
 app.set('view engine','handlebars');    
 
@@ -96,17 +101,12 @@ app.get('/assign',(req,res)=>{
 });
 
 app.post('/adminhome', (req,res)=>{
-    async function getDetails(){
-        const id = await request.find()
-        if (id["status"]=="Request Pending"){
-            (requests=>{
-                res.render('admin_home',{
-                    requests: requests
-                });
-            });
-        }
-    }
-    getDetails();
+    request.find()
+    .then(requests=>{
+        res.render('admin_home',{
+            requests: requests
+        });
+    });
 });
 
 app.post('/assigntask',(req,res)=>{

@@ -131,7 +131,12 @@
             <form action="admin" method="POST">
                 <input type="text" name="name" value={{_id}} style="display: none">
                 {{!-- <button type="submit">Send Notification</button> --}}
-            <td><a href="assign"><button id="b1" type="submit">Assign</button></a></td>
+                {{#ifEquals status "Assigned"}}
+                    <td><a href="assign"><button id="b1" type="submit" disabled="disabled">Assign</button></a></td>
+                {{/ifEquals}}
+                {{#ifEquals status "Request Pending"}}
+                    <td><a href="assign"><button id="b1" type="submit">Assign</button></a></td>
+                {{/ifEquals}}
         </tr>
         </form>
         {{/each}}
@@ -139,7 +144,7 @@
     <form action="assigntask" method="POST">
             <button type="submit" class="button">Click to view Requests</button>
         </form>
-
+    
 
 
     </div>
