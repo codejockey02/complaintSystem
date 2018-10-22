@@ -1,24 +1,24 @@
 const express = require('express');
-var app = express();
-const bodyParser = require('body-parser');
-const port 	     = process.env.PORT || 8080;
-var randomstring = require('randomstring');
-const register = require('./signup');
+var app = express();  //  used to define the routes
+const bodyParser = require('body-parser');   // for parsing the json from the response
+const port 	     = process.env.PORT || 8080;  // either any port or 8080 for localhost
+var randomstring = require('randomstring');  
+const register = require('./signup');       // including all the schemas and handlebars
 const user = require('./userSchema');
 const request = require('./reqSchema');
 const admin = require('./admin');
 const apply = require('./complaint');
 const exphbs = require('express-handlebars');
-app.use(express.static('public'));
-app.use( bodyParser.json() );
+app.use(express.static('public'));  // fetch all the static files/images fromm public folder
+app.use( bodyParser.json() );  // we;ll use body parser to have json files
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.engine('handlebars', exphbs({
+app.engine('handlebars', exphbs({     // setting the extensi0on to be handlebars 
 }));
-app.set('view engine','handlebars');
+app.set('view engine','handlebars');    
 
-app.get('/', function(req,res){
-    res.render('homepage');
+app.get('/', function(req,res){ 
+    res.render('homepage');         // to show a webpage after a response
 });
 
 app.get('/homepage', function(req,res){
@@ -96,12 +96,17 @@ app.get('/assign',(req,res)=>{
 });
 
 app.post('/adminhome', (req,res)=>{
-    request.find()
-    .then(requests=>{
-        res.render('admin_home',{
-            requests: requests
-        });
-    });
+    async function getDetails(){
+        const id = await request.find()
+        if (id["status"]=="Request Pending"){
+            (requests=>{
+                res.render('admin_home',{
+                    requests: requests
+                });
+            });
+        }
+    }
+    getDetails();
 });
 
 app.post('/assigntask',(req,res)=>{
