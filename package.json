@@ -2,7 +2,7 @@
   "name": "project_iwp",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "app.js",
   "dependencies": {
     "basic-auth": "^1.0.4",
     "bcryptjs": "^2.3.0",
@@ -18,15 +18,12 @@
     "randomstring": "*",
     "multer": "*",
     "file-type": "*",
-    "cloudinary": "*",
-    "util": "*",
-    "formidable": "*",
     "mongodb-autoincrement": "*",
     "express-handlebars": "*"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
