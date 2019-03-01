@@ -6,20 +6,10 @@ const user = require('./userSchema');
 const request = require('./reqSchema');
 const admin = require('./admin');
 const apply = require('./complaint');
-const exphbs = require('express-handlebars');
-app.use(express.static('public')); // fetch all the static files/images fromm public folder
-
-app.engine('handlebars', exphbs({
-    helpers: {
-        ifEquals: function (arg1, arg2, options) {
-            return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
-        }
-    } // setting the extensi0on to be handlebars 
-}));
 
 
 const router = express.Router();
-app.set('view engine', 'handlebars');
+
 router.get('/', function (req, res) {
     res.render('homepage'); // to show a webpage after a response
 });
