@@ -31,7 +31,7 @@ app.use('/', UserController);
 
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGO_URL, {
-    useNewUrlParser: true,
+    useMongoClient: true,
 }).then(() => {
     process.stdout.write('Connected to mongodb');
 }).catch((err) => {
