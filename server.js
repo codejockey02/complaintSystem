@@ -112,7 +112,7 @@ router.post('/admin', (req, res) => {
     const name = req.body.name;
     console.log(name);
     query = {
-        "email": "anantmishra20@gmail.com"
+        "email": "iamgroot@gmail.com"
     };
     update = {
         "$set": {
