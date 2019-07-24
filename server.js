@@ -176,7 +176,7 @@ router.post('/statuschange', (req, res) => {
 router.post('/adminlogin', (req, res) => {
     const email = req.body.email;
     const password = req.body.pw;
-    if (email == "anantmishra20@gmail.com" && password == "Anant@98") {
+    if (email == "iamgroot@gmail.com" && password == "iamgroot") {
         res.redirect('/adminhome');
     } else {
         res.status(404).send("Admin Not Found");
