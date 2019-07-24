@@ -11,5 +11,4 @@ const userData = mongoose.Schema({
     phone: Number,
     email: String,
 });
-mongoose.Promise = global.Promise;
 module.exports = mongoose.model('user', userData);
